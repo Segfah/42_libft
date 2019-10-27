@@ -6,7 +6,7 @@
 #    By: corozco <corozco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/24 05:41:03 by corozco           #+#    #+#              #
-#    Updated: 2019/10/27 07:40:50 by corozco          ###   ########.fr        #
+#    Updated: 2019/10/27 08:09:46 by corozco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,7 @@ endef
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(OBJB)
+$(NAME): $(OBJS) $(OBJB) 
 	@ar rcs $(NAME) $(OBJS) $(OBJB)
 	@echo '	 '
 	@echo '	......( \_/ ) '
@@ -122,6 +122,7 @@ objs/%.o: %.c
 clean:
 	@rm -rf $(OBJS) $(OBJB) objs
 	@printf "%b" "$(ERROR_COLOR)\tmake clean\t$(OK_COLOR)[SUCCESS]$(NO_COLOR)\n";
+	@make 42
 
 fclean:
 	@rm -rf $(NAME) $(OBJS) $(OBJB) objs
@@ -152,3 +153,7 @@ quimera:
 	@echo '	_*_______________*	'
 	@echo '	___*_____v_____*	'
 	@echo '	_____**_____** 	Quimera '
+
+42:
+	@echo '		© 2019 42corozco'
+	@echo '		║▌█║▌│█│║▌║││█║▌║▌║'
