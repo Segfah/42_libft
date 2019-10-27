@@ -6,7 +6,7 @@
 #    By: corozco <corozco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/24 05:41:03 by corozco           #+#    #+#              #
-#    Updated: 2019/10/27 06:38:44 by corozco          ###   ########.fr        #
+#    Updated: 2019/10/27 07:40:50 by corozco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,13 +106,14 @@ endef
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS)
-	@printf "%b" "$(WARN_COLOR)\t $(NAME)\t$(OK_COLOR)[CREATED]$(NO_COLOR)\n";
-
-bonus: $(OBJS) $(OBJB)
+$(NAME): $(OBJS) $(OBJB)
 	@ar rcs $(NAME) $(OBJS) $(OBJB)
-	@printf "%b" "$(WARN_COLOR)\t $(NAME)\t$(OK_COLOR)[UPDATED]$(NO_COLOR)\n";
+	@echo '	 '
+	@echo '	......( \_/ ) '
+	@echo '	......( o_o ) '
+	@echo '	..../""""""""""""\======░ ▒▓▓█D' "$(WARN_COLOR)\t $(NAME)\t$(OK_COLOR)[CREATED]$(NO_COLOR)";
+	@echo '	/"""""""""""""""""""\ '
+	@echo '	\_@_@_@_@_@_@_@_@_@_/'
 
 objs/%.o: %.c
 	@mkdir -p $(dir $@)
@@ -133,3 +134,21 @@ test:
 #	gcc $(CFLAGS )main.c -I includes -L. -lft
 	./a.out
 	@rm a.out
+
+quimera:
+	@echo '	 _**_**	'
+	@echo '	_**___**	'
+	@echo '	_**___**_________****	'
+	@echo '	_**___**_______**___****	'
+	@echo '	_**__**_______*___**___**	'
+	@echo '	__**__*______*__**__***__**	'
+	@echo '	___**__*____*__**_____**__*	'
+	@echo '	____**_**__**_**________**	'
+	@echo '	____**___**__**	'
+	@echo '	___*___________*	'
+	@echo '	__*_____________*	'
+	@echo '	_*____0_____0____*	'
+	@echo '	_*_______@_______*	'
+	@echo '	_*_______________*	'
+	@echo '	___*_____v_____*	'
+	@echo '	_____**_____** 	Quimera '
