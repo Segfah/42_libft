@@ -6,74 +6,72 @@
 #    By: corozco <corozco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/24 05:41:03 by corozco           #+#    #+#              #
-#    Updated: 2019/10/24 05:41:56 by corozco          ###   ########.fr        #
+#    Updated: 2019/10/27 06:38:44 by corozco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-HEAD := -I .
-
-#Si esta en una carpeta
-#HEAD := -I includes/
+HEAD := -I includes/
 
 #flags requeridos en 42
 CFLAGS = -Wall -Wextra -Werror
 
 BNS := \
-	ft_lstmap_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstsize_bonus.c \
-	ft_lstadd_back_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstnew_bonus.c \
+	srcs/list/ft_lstmap_bonus.c \
+	srcs/list/ft_lstiter_bonus.c \
+	srcs/list/ft_lstclear_bonus.c \
+	srcs/list/ft_lstlast_bonus.c \
+	srcs/list/ft_lstdelone_bonus.c \
+	srcs/list/ft_lstsize_bonus.c \
+	srcs/list/ft_lstadd_back_bonus.c \
+	srcs/list/ft_lstadd_front_bonus.c \
+	srcs/list/ft_lstnew_bonus.c \
 
 SRC := \
-	ft_memset.c \
-	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memccpy.c \
-	ft_memmove.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strlen.c \
-	ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strncmp.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	ft_calloc.c \
-	ft_strdup.c \
-	ft_substr.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
-	ft_split.c \
-	ft_itoa.c \
-	ft_strmapi.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-	ft_memalloc.c \
-	ft_strncat.c \
-	ft_isupper.c \
-	ft_islower.c \
-	ft_free_split.c \
-	ft_isspace.c
+	srcs/libc/ft_memset.c \
+	srcs/libc/ft_bzero.c \
+	srcs/libc/ft_memcpy.c \
+	srcs/libc/ft_memccpy.c \
+	srcs/libc/ft_memmove.c \
+	srcs/libc/ft_memchr.c \
+	srcs/libc/ft_memcmp.c \
+	srcs/libc/ft_strlen.c \
+	srcs/libc/ft_isalpha.c \
+	srcs/libc/ft_isdigit.c \
+	srcs/libc/ft_isalnum.c \
+	srcs/libc/ft_isascii.c \
+	srcs/libc/ft_isprint.c \
+	srcs/libc/ft_toupper.c \
+	srcs/libc/ft_tolower.c \
+	srcs/libc/ft_strchr.c \
+	srcs/libc/ft_strrchr.c \
+	srcs/libc/ft_strncmp.c \
+	srcs/libc/ft_strlcpy.c \
+	srcs/libc/ft_strlcat.c \
+	srcs/libc/ft_strnstr.c \
+	srcs/libc/ft_atoi.c \
+	srcs/libc/ft_calloc.c \
+	srcs/libc/ft_strdup.c \
+	srcs/libc/ft_substr.c \
+	srcs/libc/ft_strjoin.c \
+	srcs/libc/ft_strtrim.c \
+	srcs/libc/ft_split.c \
+	srcs/libc/ft_itoa.c \
+	srcs/libc/ft_strmapi.c \
+	srcs/libc/ft_putchar_fd.c \
+	srcs/libc/ft_putstr_fd.c \
+	srcs/libc/ft_putendl_fd.c \
+	srcs/libc/ft_putnbr_fd.c \
+	srcs/libc/ft_memalloc.c \
+	srcs/libc/ft_strncat.c \
+	srcs/libc/ft_isupper.c \
+	srcs/libc/ft_islower.c \
+	srcs/libc/ft_free_split.c \
+	srcs/libc/ft_isspace.c
 
-OBJS :=$(SRC:.c=.o)
-OBJB :=$(BNS:.c=.o)
+
+OBJS = $(addprefix objs/, $(SRC:.c=.o))
+OBJB = $(addprefix objs/, $(BNS:.c=.o))
 
 #color
 COM_COLOR   = \033[0;34m
@@ -116,20 +114,20 @@ bonus: $(OBJS) $(OBJB)
 	@ar rcs $(NAME) $(OBJS) $(OBJB)
 	@printf "%b" "$(WARN_COLOR)\t $(NAME)\t$(OK_COLOR)[UPDATED]$(NO_COLOR)\n";
 
-%.o: %.c
+objs/%.o: %.c
+	@mkdir -p $(dir $@)
 	@$(call run_and_test,gcc $(CFLAGS) $(HEAD) -c $< -o $@)
 
 clean:
-	@rm -rf $(OBJS) $(OBJB)
+	@rm -rf $(OBJS) $(OBJB) objs
 	@printf "%b" "$(ERROR_COLOR)\tmake clean\t$(OK_COLOR)[SUCCESS]$(NO_COLOR)\n";
 
 fclean:
-	@rm -rf $(NAME) $(OBJS) $(OBJB)
+	@rm -rf $(NAME) $(OBJS) $(OBJB) objs
 	@printf "%b" "$(ERROR_COLOR)\tmake fclean\t$(OK_COLOR)[SUCCESS]$(NO_COLOR)\n";
 
 re: fclean all
 
-# copilar testos
 test:
 	gcc $(CFLAGS )main.c -I. -L. -lft
 #	gcc $(CFLAGS )main.c -I includes -L. -lft
