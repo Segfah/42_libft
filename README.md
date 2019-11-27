@@ -12,7 +12,8 @@ $ libft_note_115 =
     #libft_basics_2: 10/10 correct functions 
     #libft_bonus: 9/9 correct functions
 
-$ libft_update =
+$ libft_update +=
     #(optimización)
+    #ft_printf
 ```
 
