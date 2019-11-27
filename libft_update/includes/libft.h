@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: corozco <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:44:28 by corozco           #+#    #+#             */
-/*   Updated: 2019/10/18 08:47:56 by corozco          ###   ########.fr       */
+/*   Updated: 2019/11/26 00:50:20 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
-# include <unistd.h>
 # include <stdlib.h>
+# include "ft_printf.h"
 
 typedef struct	s_list
 {
@@ -33,6 +32,8 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 t_list			*ft_lstnew(void *content);
+int				ft_putchar(char c);
+int				ft_putstr(char *s);
 void			ft_free_split(char **split, int i);
 void			ft_bzero(void *s, size_t n);
 void			ft_putnbr_fd(int n, int fd);
@@ -74,5 +75,7 @@ char			**ft_split(char const *s, char c);
 size_t			ft_strlen(const char *s);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char			*ft_itoa_base(long value, int base, char c);
+char			*ft_ltoa(long n);
 
 #endif

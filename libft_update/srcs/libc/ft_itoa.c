@@ -6,11 +6,11 @@
 /*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 02:39:33 by corozco           #+#    #+#             */
-/*   Updated: 2019/10/12 06:01:44 by corozco          ###   ########.fr       */
+/*   Updated: 2019/11/02 02:20:28 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_itoa(int n)
 {

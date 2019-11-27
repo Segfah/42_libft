@@ -6,11 +6,11 @@
 /*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 05:37:33 by corozco           #+#    #+#             */
-/*   Updated: 2019/10/23 04:54:20 by corozco          ###   ########.fr       */
+/*   Updated: 2019/11/02 02:24:28 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

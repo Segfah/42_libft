@@ -6,7 +6,7 @@
 #    By: corozco <corozco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/24 05:41:03 by corozco           #+#    #+#              #
-#    Updated: 2019/10/27 08:09:46 by corozco          ###   ########.fr        #
+#    Updated: 2019/11/27 23:27:59 by corozco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,10 @@ NAME = libft.a
 HEAD := -I includes/
 
 #flags requeridos en 42
+#CFLAGS = -fsanitize=address -Wall -Wextra -Werror
 CFLAGS = -Wall -Wextra -Werror
-
-BNS := \
-	srcs/list/ft_lstmap_bonus.c \
-	srcs/list/ft_lstiter_bonus.c \
-	srcs/list/ft_lstclear_bonus.c \
-	srcs/list/ft_lstlast_bonus.c \
-	srcs/list/ft_lstdelone_bonus.c \
-	srcs/list/ft_lstsize_bonus.c \
-	srcs/list/ft_lstadd_back_bonus.c \
-	srcs/list/ft_lstadd_front_bonus.c \
-	srcs/list/ft_lstnew_bonus.c \
+#CFLAGS = -fsanitize=address
+#CFLAGS =
 
 SRC := \
 	srcs/libc/ft_memset.c \
@@ -57,8 +49,12 @@ SRC := \
 	srcs/libc/ft_strtrim.c \
 	srcs/libc/ft_split.c \
 	srcs/libc/ft_itoa.c \
+	srcs/libc/ft_ltoa.c \
+	srcs/libc/ft_itoa_base.c \
 	srcs/libc/ft_strmapi.c \
+	srcs/libc/ft_putchar.c \
 	srcs/libc/ft_putchar_fd.c \
+	srcs/libc/ft_putstr.c \
 	srcs/libc/ft_putstr_fd.c \
 	srcs/libc/ft_putendl_fd.c \
 	srcs/libc/ft_putnbr_fd.c \
@@ -69,9 +65,31 @@ SRC := \
 	srcs/libc/ft_free_split.c \
 	srcs/libc/ft_isspace.c
 
+BNS := \
+	srcs/list/ft_lstmap_bonus.c \
+	srcs/list/ft_lstiter_bonus.c \
+	srcs/list/ft_lstclear_bonus.c \
+	srcs/list/ft_lstlast_bonus.c \
+	srcs/list/ft_lstdelone_bonus.c \
+	srcs/list/ft_lstsize_bonus.c \
+	srcs/list/ft_lstadd_back_bonus.c \
+	srcs/list/ft_lstadd_front_bonus.c \
+	srcs/list/ft_lstnew_bonus.c \
+
+
+SRCP := \
+	srcs/printf/ft_printf.c \
+	srcs/printf/ft_gestion_char.c \
+	srcs/printf/ft_gestion_string.c \
+	srcs/printf/ft_gestion_number.c \
+	srcs/printf/ft_gestion_hexa.c \
+	srcs/printf/ft_gestion_pointer.c \
+	srcs/printf/ft_pf_check.c \
+	srcs/printf/ft_pf_tools.c \
 
 OBJS = $(addprefix objs/, $(SRC:.c=.o))
 OBJB = $(addprefix objs/, $(BNS:.c=.o))
+OBJP = $(addprefix objs/, $(SRCP:.c=.o))
 
 #color
 COM_COLOR   = \033[0;34m
@@ -106,8 +124,8 @@ endef
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(OBJB) 
-	@ar rcs $(NAME) $(OBJS) $(OBJB)
+$(NAME): $(OBJS) $(OBJB) $(OBJP)
+	@ar rcs $(NAME) $(OBJS) $(OBJB) $(OBJP)
 	@echo '	 '
 	@echo '	......( \_/ ) '
 	@echo '	......( o_o ) '
@@ -120,21 +138,32 @@ objs/%.o: %.c
 	@$(call run_and_test,gcc $(CFLAGS) $(HEAD) -c $< -o $@)
 
 clean:
-	@rm -rf $(OBJS) $(OBJB) objs
+	@rm -rf $(OBJS) $(OBJB) $(OBJP) objs
 	@printf "%b" "$(ERROR_COLOR)\tmake clean\t$(OK_COLOR)[SUCCESS]$(NO_COLOR)\n";
 	@make 42
 
 fclean:
-	@rm -rf $(NAME) $(OBJS) $(OBJB) objs
+	@rm -rf $(NAME) $(OBJS) $(OBJB) $(OBJP) objs
 	@printf "%b" "$(ERROR_COLOR)\tmake fclean\t$(OK_COLOR)[SUCCESS]$(NO_COLOR)\n";
 
 re: fclean all
 
-test:
-	gcc $(CFLAGS )main.c -I. -L. -lft
-#	gcc $(CFLAGS )main.c -I includes -L. -lft
-	./a.out
+test: $(NAME)
+	@printf "\n\n"
+#	@gcc $(CFLAGS )main.c -I. -L. -lft
+#	@gcc $(CFLAGS) main.c $(HEAD) -L. -lft
+	@gcc $(CFLAGS) main.c $(HEAD) -L. -lftprintf
+	@./a.out
 	@rm a.out
+	@printf "\n\n"
+	@make 42
+
+test2:
+	@printf "\n\n"
+	@gcc $(CFLAGS )main.c -I./ftl -L./ftl -lftleo
+	@./a.out
+	@rm a.out
+	@printf "\n\n"
 
 quimera:
 	@echo '	 _**_**	'

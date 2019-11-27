@@ -6,11 +6,9 @@
 /*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:29:26 by corozco           #+#    #+#             */
-/*   Updated: 2019/10/15 06:27:29 by corozco          ###   ########.fr       */
+/*   Updated: 2019/11/02 02:19:27 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isascii(int c)
 {

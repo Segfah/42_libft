@@ -6,11 +6,11 @@
 /*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:18:51 by corozco           #+#    #+#             */
-/*   Updated: 2019/10/23 03:03:49 by corozco          ###   ########.fr       */
+/*   Updated: 2019/11/02 02:12:16 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
+/*   By: corozco <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:47:31 by corozco           #+#    #+#             */
-/*   Updated: 2019/11/02 02:19:31 by corozco          ###   ########.fr       */
+/*   Created: 2019/10/07 14:38:13 by corozco           #+#    #+#             */
+/*   Updated: 2019/11/04 08:42:05 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <unistd.h>
+#include "libft.h"
+
+int	ft_putstr(char *s)
 {
-	return (c >= '0' && c <= '9');
+	return (write(1, s, ft_strlen(s)));
 }

@@ -6,11 +6,9 @@
 /*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:03:37 by corozco           #+#    #+#             */
-/*   Updated: 2019/10/16 03:16:12 by corozco          ###   ########.fr       */
+/*   Updated: 2019/11/02 02:19:35 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_islower(int c)
 {

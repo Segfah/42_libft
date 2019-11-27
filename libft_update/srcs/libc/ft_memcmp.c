@@ -6,11 +6,11 @@
 /*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 03:33:12 by corozco           #+#    #+#             */
-/*   Updated: 2019/10/18 06:52:42 by corozco          ###   ########.fr       */
+/*   Updated: 2019/11/02 02:15:08 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
