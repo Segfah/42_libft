@@ -6,7 +6,7 @@
 /*   By: corozco <corozco@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 07:01:15 by corozco           #+#    #+#             */
-/*   Updated: 2019/11/27 23:20:53 by corozco          ###   ########.fr       */
+/*   Updated: 2019/11/28 02:04:30 by corozco          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_check_max(char *str, va_list ap, t_ptf *node)
 	char	tab[12];
 	int		i;
 
-	if (*str == '*')
+	while (*str == '*')
 	{
 		node->maximus = 1;
 		str = ft_check_wid(str, ap, node);
@@ -45,7 +45,7 @@ char		*ft_check_max(char *str, va_list ap, t_ptf *node)
 		tab[i] = '\0';
 		node->max = ft_atoi(tab);
 	}
-	if (*str == '*')
+	while (*str == '*')
 	{
 		node->maximus = 1;
 		str = ft_check_wid(str, ap, node);
@@ -92,7 +92,7 @@ char		*ft_check_pres(char *str, va_list ap, t_ptf *node)
 		tab[i] = '\0';
 		node->pre = ft_atoi(tab);
 	}
-	else if (*str == '*')
+	while (*str == '*')
 	{
 		str = ft_check_wid(str, ap, node);
 		node->pre = node->tmp;
