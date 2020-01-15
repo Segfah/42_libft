@@ -16,6 +16,10 @@
 # include <stdlib.h>
 # include "ft_printf.h"
 
+# ifndef BS_GNL
+#  define BS_GNL 35
+# endif
+
 typedef struct	s_list
 {
 	void			*content;
@@ -58,6 +62,7 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 int				ft_atoi(const char *str);
 int				ft_isspace(const char s);
+int				ft_gnl(int fd, char **line);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_itoa(int n);

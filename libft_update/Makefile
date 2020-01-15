@@ -50,6 +50,7 @@ SRC := \
 	srcs/libc/ft_split.c \
 	srcs/libc/ft_itoa.c \
 	srcs/libc/ft_ltoa.c \
+	srcs/libc/ft_gnl.c \
 	srcs/libc/ft_itoa_base.c \
 	srcs/libc/ft_strmapi.c \
 	srcs/libc/ft_putchar.c \
