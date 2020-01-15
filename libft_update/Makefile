@@ -6,14 +6,13 @@
 #    By: corozco <corozco@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/24 05:41:03 by corozco           #+#    #+#              #
-#    Updated: 2019/11/27 23:27:59 by corozco          ###   ########.fr        #
+#    Updated: 2020/01/15 02:49:06 by corozco          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 HEAD := -I includes/
 
-#flags requeridos en 42
 #CFLAGS = -fsanitize=address -Wall -Wextra -Werror
 CFLAGS = -Wall -Wextra -Werror
 #CFLAGS = -fsanitize=address
@@ -149,23 +148,6 @@ fclean:
 
 re: fclean all
 
-test: $(NAME)
-	@printf "\n\n"
-#	@gcc $(CFLAGS )main.c -I. -L. -lft
-#	@gcc $(CFLAGS) main.c $(HEAD) -L. -lft
-	@gcc $(CFLAGS) main.c $(HEAD) -L. -lftprintf
-	@./a.out
-	@rm a.out
-	@printf "\n\n"
-	@make 42
-
-test2:
-	@printf "\n\n"
-	@gcc $(CFLAGS )main.c -I./ftl -L./ftl -lftleo
-	@./a.out
-	@rm a.out
-	@printf "\n\n"
-
 quimera:
 	@echo '	 _**_**	'
 	@echo '	_**___**	'
@@ -185,5 +167,5 @@ quimera:
 	@echo '	_____**_____** 	Quimera '
 
 42:
-	@echo '		© 2019 42corozco'
+	@echo '		© 2020 42corozco'
 	@echo '		║▌█║▌│█│║▌║││█║▌║▌║'
